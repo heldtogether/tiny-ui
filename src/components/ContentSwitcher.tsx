@@ -4,11 +4,15 @@ type ContentSwitcherProps = {
   children: React.ReactElement<typeof ContentSwitcherItem> | React.ReactElement<typeof ContentSwitcherItem>[];
 }
 
+/**
+ * A component that displays a list of items and allows the user to switch between them.
+ * The state should be managed by the parent component.
+ */
 export function ContentSwitcher({ children }: ContentSwitcherProps) {
   return (
     <div
       role="tablist"
-      className="tu:flex tu:flex-row tu:w-full tu:border tu:border-gray-300 tu:rounded-sm tu:text-sm"
+      className="tu:flex tu:flex-row tu:w-full tu:border tu:border-gray-300 tu:rounded-sm tu:text-sm tu:overflow-y-scroll no-scrollbar"
     >
       {children}
     </div>
@@ -28,7 +32,7 @@ export function ContentSwitcherItem({ children, active = false, onClick }: Conte
       role="tab"
       tabIndex={0}
       aria-selected={active}
-      className="tu:flex-1 tu:py-1 tu:px-4 tu:border-r tu:last:border-r-0 tu:border-gray-300 tu:relative tu:overflow-hidden tu:group tu:bg-white"
+      className="tu:flex-1 tu:shrink-0 tu:min-w-24 tu:py-1 tu:px-4 tu:border-r tu:last:border-r-0 tu:border-gray-300 tu:relative tu:overflow-hidden tu:group tu:bg-white tu:cursor-pointer tu:whitespace-nowrap"
       onClick={onClick}
     >
       <span className={`tu:relative tu:z-10 tu:transition-colors tu:duration-100 ${active ? "tu:text-gray-50" : "tu:text-gray-800"}`}>

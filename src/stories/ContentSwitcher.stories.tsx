@@ -1,18 +1,26 @@
-import { useState } from "react";
 import { StoryObj, Meta } from "@storybook/react";
 
 import { ContentSwitcher, ContentSwitcherItem } from "../components/ContentSwitcher";
+import { useContentSwitcher } from "../hooks/useContentSwitcher";
 
-const meta: Meta<typeof ContentSwitcher> = {
+// Define a component with ContentSwitcher props and our additional storybook args
+type ContentSwitcherWithStoryProps = React.ComponentProps<typeof ContentSwitcher> & {
+  activeIndex?: number;
+};
+
+const meta: Meta<ContentSwitcherWithStoryProps> = {
   title: "Components/ContentSwitcher",
   component: ContentSwitcher,
+  subcomponents: {
+    ContentSwitcherItem,
+  },
   parameters: {
     layout: "centered",
     controls: { expanded: true },
   },
   decorators: [
     (Story) => (
-      <div className="tu:w-192 tu:m-2">
+      <div className="tu:w-64 tu:md:w-full">
         <Story />
       </div>
     ),
@@ -28,38 +36,62 @@ const meta: Meta<typeof ContentSwitcher> = {
         },
       },
     },
+    activeIndex: {
+      description: "The index of the active tab (for story controls only)",
+      control: { type: 'number' },
+      table: {
+        type: { summary: 'number' },
+        defaultValue: { summary: '0' },
+      },
+    },
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof ContentSwitcher>;
+// Define the Story type with our custom component type
+type Story = StoryObj<ContentSwitcherWithStoryProps>;
 
 export const Default: Story = {
-  args: {},
+  parameters: {
+    docs: {
+      source: {
+        language: "tsx",
+        code: `
+const { setActiveIndex, isActiveIndex } = useContentSwitcher(0);
+
+return (
+  <ContentSwitcher>
+    {Array.from({ length: 5 }).map((_, index) => (
+      <ContentSwitcherItem
+        active={isActiveIndex(index)}
+        onClick={() => setActiveIndex(index)}
+      >
+        Content {index + 1}
+      </ContentSwitcherItem>
+    ))}
+  </ContentSwitcher>
+);
+    `,
+      },
+    },
+  },
+  args: {
+    activeIndex: 0,
+  },
   render: (args) => {
-    // We keep the state management in the render function
-    const [activeTab, setActiveTab] = useState<number>(0);
+    const { activeIndex } = args;
+    const { setActiveIndex, isActiveIndex } = useContentSwitcher(activeIndex);
 
     return (
-      <ContentSwitcher {...args}>
-        <ContentSwitcherItem
-          active={activeTab === 0}
-          onClick={() => setActiveTab(0)}
-        >
-          Tab 1
-        </ContentSwitcherItem>
-        <ContentSwitcherItem
-          active={activeTab === 1}
-          onClick={() => setActiveTab(1)}
-        >
-          Tab 2
-        </ContentSwitcherItem>
-        <ContentSwitcherItem
-          active={activeTab === 2}
-          onClick={() => setActiveTab(2)}
-        >
-          Tab 3
-        </ContentSwitcherItem>
+      <ContentSwitcher>
+        {Array.from({ length: 5 }).map((_, index) => (
+          <ContentSwitcherItem
+            active={isActiveIndex(index)}
+            onClick={() => setActiveIndex(index)}
+          >
+            Content {index + 1}
+          </ContentSwitcherItem>
+        ))}
       </ContentSwitcher>
     );
   }
