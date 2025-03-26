@@ -1,4 +1,3 @@
-import React from "react";
 import { StoryObj, Meta } from "@storybook/react";
 
 import { Header, HeaderTitle, HeaderActions, HeaderAction } from "../components/Header";
@@ -37,8 +36,8 @@ const meta: Meta<typeof HeaderActions> = {
   args: {
 
   },
-  render: ({ children }) => (
-    <Header>
+  render: (args) => (
+    <Header {...args}>
       <HeaderTitle>
         <Heading>
           <span className="tu:font-normal tu:mr-2">Tiny UI</span>[shell]

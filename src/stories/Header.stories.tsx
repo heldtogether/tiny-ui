@@ -1,4 +1,3 @@
-import React from "react";
 import { StoryObj, Meta } from "@storybook/react";
 import { User } from "@carbon/icons-react";
 
@@ -40,11 +39,9 @@ const meta: Meta<typeof Header> = {
       },
     },
   },
-  args: {
-
-  },
-  render: ({ children }) => (
-    <Header>
+  args: {},
+  render: (args) => (
+    <Header {...args}>
       <HeaderTitle>
         <Heading>
           <span className="tu:font-normal tu:mr-2">Tiny UI</span>[shell]
@@ -61,7 +58,5 @@ export default meta;
 type Story = StoryObj<typeof Header>;
 
 export const Default: Story = {
-  args: {
-    children: <></>,
-  },
+  args: {},
 };

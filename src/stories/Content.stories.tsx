@@ -1,4 +1,3 @@
-import React from "react";
 import { StoryObj, Meta } from "@storybook/react";
 
 import { Content } from "../components/Content";
@@ -41,11 +40,9 @@ const meta: Meta<typeof Content> = {
       },
     },
   },
-  args: {
-
-  },
-  render: ({ children }) => (
-    <Content>
+  args: {},
+  render: (args) => (
+    <Content {...args}>
       <Sidebar label="Main Navigation">
         <SidebarItems>
           <SidebarLinkItem href="/">
@@ -76,7 +73,5 @@ export default meta;
 type Story = StoryObj<typeof Header>;
 
 export const Default: Story = {
-  args: {
-    children: <></>,
-  },
+  args: {},
 };

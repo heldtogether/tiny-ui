@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { User, Help } from "@carbon/icons-react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import { Shell } from "../components/Shell";
 import {
@@ -18,9 +19,9 @@ import {
 } from "../components/Header";
 import { Portal } from "../components/Portal";
 import { Content } from "../components/Content";
-import { Heading } from "../components/Heading";
+import { Heading } from "../components/Heading";;
 
-export default {
+const meta: Meta<typeof Shell> = {
   title: "UI/Shell",
   component: Shell,
   parameters: {
@@ -28,21 +29,29 @@ export default {
   },
   tags: ["autodocs"],
   argTypes: {
-    // onMenuClick: { action: "menu button clicked" },
-    // onSidebarItemClick: { action: "sidebar item clicked" },
+    children: {
+      control: false,
+      description: "The children of the shell",
+      table: {
+        type: { summary: "React.ReactNode" },
+      },
+    },
   },
 };
 
-export const HeaderSidebarAndContent = {
-  render: (args: any) => {
+export default meta;
+type Story = StoryObj<typeof Shell>;
+
+export const HeaderSidebarAndContent: Story = {
+  args: {},
+  render: (args) => {
     const [isVisible, setIsVisible] = useState(false);
 
     return (
-      <Shell>
+      <Shell {...args}>
         <Header>
           <HeaderTitle
             onMenuClick={() => {
-              args.onMenuClick();
               setIsVisible(!isVisible);
             }}
             isMenuOpen={isVisible}
@@ -64,11 +73,7 @@ export const HeaderSidebarAndContent = {
               <SidebarLinkItem href="#">Item3</SidebarLinkItem>
             </SidebarItems>
             <SidebarItems>
-              <SidebarButtonItem
-                onClick={() => {
-                  args.onSidebarItemClick();
-                }}
-              >
+              <SidebarButtonItem onClick={() => { }}>
                 Settings
               </SidebarButtonItem>
               <SidebarDivider />
@@ -95,10 +100,11 @@ export const HeaderSidebarAndContent = {
   },
 };
 
-export const HeaderAndContent = {
-  render: (args: any) => {
+export const HeaderAndContent: Story = {
+  args: {},
+  render: (args) => {
     return (
-      <Shell>
+      <Shell {...args}>
         <Header>
           <HeaderTitle>
             <Heading><span className="tu:font-normal tu:mr-2">Tiny UI</span>[shell]</Heading>

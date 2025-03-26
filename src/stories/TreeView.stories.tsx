@@ -23,6 +23,14 @@ const meta: Meta<typeof TreeView> = {
   argTypes: {
     children: {
       control: false,
+      description: "The child nodes of the tree view",
+      table: {
+        type: { summary: "TreeNode | TreeNode[]" },
+      },
+    },
+    label: {
+      control: false,
+      description: "The a11y label of the tree view",
     },
   },
 };

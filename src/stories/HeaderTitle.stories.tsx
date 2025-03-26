@@ -1,9 +1,7 @@
-import React from "react";
 import { StoryObj, Meta } from "@storybook/react";
 
-import { Header, HeaderTitle, HeaderActions, HeaderAction } from "../components/Header";
+import { Header, HeaderTitle } from "../components/Header";
 import { Heading } from "../components/Heading";
-import { User } from "@carbon/icons-react";
 import { Shell } from "../components/Shell";
 
 const meta: Meta<typeof HeaderTitle> = {
@@ -44,9 +42,7 @@ const meta: Meta<typeof HeaderTitle> = {
       description: "Whether the menu is open (only used on small screens)",
     },
   },
-  args: {
-
-  },
+  args: {},
   render: ({ onMenuClick, isMenuOpen }) => (
     <HeaderTitle onMenuClick={onMenuClick} isMenuOpen={isMenuOpen}>
       <Heading>

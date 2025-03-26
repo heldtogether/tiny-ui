@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 
 export function Tooltip({ children }: { children: ReactNode }) {
   return <div className="tu:relative tu:group">{children}</div>;
