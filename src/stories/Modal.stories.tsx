@@ -1,8 +1,9 @@
 import { StoryObj, Meta } from "@storybook/react";
 
 import { Modal } from "../components/Modal";
-import { useEffect, useState } from "react";
 import { Shell } from "../components/Shell";
+import { useModal } from "../hooks/useModal";
+
 const meta: Meta<typeof Modal> = {
   title: "Components/Modal",
   component: Modal,
@@ -51,11 +52,7 @@ const meta: Meta<typeof Modal> = {
     ),
   },
   render: (args) => {
-    const [isVisible, setIsVisible] = useState(args.isOpen);
-
-    useEffect(() => {
-      setIsVisible(args.isOpen);
-    }, [args.isOpen]);
+    const { isVisible, setIsVisible } = useModal(args.isOpen);
 
     return (
       <>
@@ -75,5 +72,28 @@ export default meta;
 type Story = StoryObj<typeof Modal>;
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      source: {
+        language: "tsx",
+        code: `
+const { isVisible, setIsVisible } = useModal(false);
+
+return (
+  <>
+    <button
+      onClick={() => setIsVisible(!isVisible)}
+    >
+      Click me
+    </button>
+    <Modal isOpen={isVisible} onRequestClose={() => setIsVisible(false)}>
+        {modalContent}
+    </Modal>
+  </>
+);
+    `,
+      },
+    },
+  },
   args: {}
 };
