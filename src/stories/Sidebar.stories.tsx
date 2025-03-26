@@ -33,7 +33,7 @@ const meta: Meta<typeof Sidebar> = {
     },
   },
   render: ({ size }) => (
-    <Sidebar isVisible={true} size={size}>
+    <Sidebar label="Main Navigation" isVisible={true} size={size}>
       <SidebarItems>
         <SidebarLinkItem href="#">Item1</SidebarLinkItem>
         <SidebarLinkItem href="#">Item2</SidebarLinkItem>
@@ -68,9 +68,14 @@ export const Default: Story = {
 };
 
 export const MultipleSidebars: Story = {
+  argTypes: {
+    size: {
+      control: false,
+    },
+  },
   render: () => (
     <>
-      <Sidebar isVisible={true} size="medium">
+      <Sidebar label="Main Navigation" isVisible={true} size="medium">
         <SidebarItems>
           <SidebarLinkItem href="#">Item1</SidebarLinkItem>
           <SidebarLinkItem href="#">Item2</SidebarLinkItem>
@@ -92,7 +97,7 @@ export const MultipleSidebars: Story = {
           </SidebarTextItem>
         </SidebarItems>
       </Sidebar>
-      <Sidebar isVisible={true} size="large">
+      <Sidebar label="Context-dependent Navigation" isVisible={true} size="large">
         <SidebarItems>
           <SidebarLinkItem href="#">Item4</SidebarLinkItem>
           <SidebarLinkItem href="#">Item5</SidebarLinkItem>

@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 
 type SidebarProps = {
+  label: string;
   children?: ReactNode;
   className?: string;
   isVisible?: boolean;
@@ -8,6 +9,7 @@ type SidebarProps = {
 };
 
 export function Sidebar({
+  label,
   children,
   className,
   isVisible = false,
@@ -15,14 +17,15 @@ export function Sidebar({
 }: SidebarProps) {
   return (
     <aside
+      aria-label={label}
       className={
-        `tu:overflow-y-scroll tu:shrink-0 tu:flex-col tu:justify-between tu:text-sm tu:absolute tu:md:static tu:top-0 tu:h-full tu:md:h-auto tu:left-0 tu:bg-white tu:md:flex ${isVisible ? "tu:flex" : "tu:hidden"
-        } tu:shadow-lg tu:md:shadow-none tu:z-10 ${size === "small" ? "tu:w-48" : size === "medium" ? "tu:w-64" : "tu:w-96"
+        `tu:overflow-y-scroll tu:shrink-0 tu:flex-col tu:justify-between tu:text-sm tu:absolute tu:md:static tu:top-0 
+        tu:h-full tu:md:h-auto tu:left-0 tu:bg-white tu:md:flex tu:shadow-lg tu:md:shadow-none tu:z-10
+        ${isVisible ? "tu:flex" : "tu:hidden"} ${size === "small" ? "tu:w-48" : size === "medium" ? "tu:w-64" : "tu:w-96"
         }` +
         " " +
         className
       }
-      role="menu"
     >
       {children}
     </aside>

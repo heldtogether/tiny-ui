@@ -28,8 +28,8 @@ export default {
   },
   tags: ["autodocs"],
   argTypes: {
-    onMenuClick: { action: "menu button clicked" },
-    onSidebarItemClick: { action: "sidebar item clicked" },
+    // onMenuClick: { action: "menu button clicked" },
+    // onSidebarItemClick: { action: "sidebar item clicked" },
   },
 };
 
@@ -50,13 +50,13 @@ export const HeaderSidebarAndContent = {
             <Heading><span className="tu:font-normal tu:mr-2">Tiny UI</span>[shell]</Heading>
           </HeaderTitle>
           <HeaderActions>
-            <HeaderAction>Jony Appleseed</HeaderAction>
-            <HeaderAction icon={Help} tooltip="Help" onClick={() => { }} />
-            <HeaderAction icon={User} tooltip="Profile" onClick={() => { }} />
+            <HeaderAction label="User name">Jony Appleseed</HeaderAction>
+            <HeaderAction icon={Help} label="Help" tooltip={true} onClick={() => { }} />
+            <HeaderAction icon={User} label="Profile" tooltip={true} onClick={() => { }} />
           </HeaderActions>
         </Header>
         <Content>
-          <Sidebar isVisible={isVisible}>
+          <Sidebar label="Main Navigation" isVisible={isVisible}>
             <SidebarItems>
               <SidebarLinkItem href="#">Item1</SidebarLinkItem>
               <SidebarLinkItem href="#">Item2</SidebarLinkItem>
@@ -104,9 +104,9 @@ export const HeaderAndContent = {
             <Heading><span className="tu:font-normal tu:mr-2">Tiny UI</span>[shell]</Heading>
           </HeaderTitle>
           <HeaderActions>
-            <HeaderAction>Jony Appleseed</HeaderAction>
-            <HeaderAction icon={Help} tooltip="Help" onClick={() => { }} />
-            <HeaderAction icon={User} tooltip="Profile" onClick={() => { }} />
+            <HeaderAction label="User name">Jony Appleseed</HeaderAction>
+            <HeaderAction icon={Help} label="Help" tooltip={true} onClick={() => { }} />
+            <HeaderAction icon={User} label="Profile" tooltip={true} onClick={() => { }} />
           </HeaderActions>
         </Header>
         <Content>

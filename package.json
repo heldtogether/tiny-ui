@@ -19,6 +19,7 @@
     "@carbon/icons-react": "^11.57.0",
     "@chromatic-com/storybook": "^3.2.6",
     "@eslint/js": "^9.21.0",
+    "@storybook/addon-a11y": "^8.6.9",
     "@storybook/addon-essentials": "^8.6.9",
     "@storybook/addon-onboarding": "^8.6.9",
     "@storybook/blocks": "^8.6.9",
