@@ -1,4 +1,3 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 
 import {
@@ -9,7 +8,8 @@ import {
   SidebarButtonItem,
   SidebarTextItem,
 } from "../components/Sidebar";
-import { Content } from "../components/Content";
+import { TreeNode } from "../components/TreeView";
+import { TreeView } from "../components/TreeView";
 
 const meta: Meta<typeof Sidebar> = {
   title: "Components/Sidebar",
@@ -30,6 +30,22 @@ const meta: Meta<typeof Sidebar> = {
     size: {
       control: "select",
       options: ["small", "medium", "large"],
+      description: "The size of the sidebar",
+      table: {
+        type: { summary: "small | medium | large" },
+      },
+    },
+    children: {
+      description: "The child nodes of the sidebar",
+      control: false,
+    },
+    label: {
+      control: false,
+      description: "The a11y label of the sidebar",
+    },
+    isVisible: {
+      control: false,
+      description: "Whether the sidebar is currently visible (only used on mobile)",
     },
   },
   render: ({ size }) => (
@@ -105,5 +121,62 @@ export const MultipleSidebars: Story = {
         </SidebarItems>
       </Sidebar>
     </>
+  ),
+};
+
+export const SidebarsWithTreeview: Story = {
+  args: {
+    size: "medium",
+  },
+  argTypes: {
+    children: {
+      control: false,
+    },
+    label: {
+      control: false,
+    },
+    isVisible: {
+      control: false,
+    },
+  },
+  render: ({ size }) => (
+    <Sidebar label="Main Navigation" isVisible={true} size={size}>
+      <TreeView label="Tree View">
+        <TreeNode label="Folder 1">
+          <TreeNode label="Object 1" />
+          <TreeNode label="Object 2" />
+        </TreeNode>
+        <TreeNode label="Folder 2">
+          <TreeNode label="Object 3" />
+          <TreeNode label="Object 4" />
+        </TreeNode>
+        <TreeNode label="Object 5" />
+        <TreeNode label="Object 6" />
+        <TreeNode label="Object 7" />
+        <TreeNode label="Object 8" />
+        <TreeNode label="Object 9" />
+        <TreeNode label="Object 10" />
+        <TreeNode label="Object 11" />
+        <TreeNode label="Object 12" />
+        <TreeNode label="Object 13" />
+        <TreeNode label="Object 14" />
+        <TreeNode label="Object 15" />
+        <TreeNode label="Object 16" />
+        <TreeNode label="Object 17" />
+        <TreeNode label="Object 18" />
+        <TreeNode label="Object 19" />
+        <TreeNode label="Object 20" />
+        <TreeNode label="Object 21" />
+        <TreeNode label="Object 22" />
+        <TreeNode label="Object 23" />
+        <TreeNode label="Object 24" />
+        <TreeNode label="Object 25" />
+        <TreeNode label="Object 26" />
+        <TreeNode label="Object 27" />
+        <TreeNode label="Object 28" />
+        <TreeNode label="Object 29" />
+        <TreeNode label="Object 30" />
+      </TreeView>
+    </Sidebar>
   ),
 };
