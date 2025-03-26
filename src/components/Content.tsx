@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 
 /**
  * Content component that wraps the non-header content of the page. The content is a flex row with a scrollable overflow.
