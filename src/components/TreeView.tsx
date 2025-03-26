@@ -10,7 +10,7 @@ type TreeViewProps = {
 export function TreeView({ children, label }: TreeViewProps) {
   return (
     <div className="tu:w-full tu:h-full tu:overflow-y-auto tu:bg-gray-100">
-      {label && <span className="tu:text-sm tu:font-bold">{label}</span>}
+      {label && <span className="tu:text-sm tu:font-bold tu:ml-2">{label}</span>}
       {children}
     </div>
   );

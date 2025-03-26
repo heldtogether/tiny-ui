@@ -1,15 +1,5 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 
-import {
-  Sidebar,
-  SidebarDivider,
-  SidebarItems,
-  SidebarLinkItem,
-  SidebarButtonItem,
-  SidebarTextItem,
-} from "../components/Sidebar";
-import { Content } from "../components/Content";
 import { TreeNode, TreeView } from "../components/TreeView";
 
 const meta: Meta<typeof TreeView> = {
@@ -31,9 +21,19 @@ const meta: Meta<typeof TreeView> = {
   },
   tags: ["autodocs"],
   argTypes: {
+    children: {
+      control: false,
+    },
   },
-  render: () => (
-    <TreeView>
+};
+
+export default meta;
+type Story = StoryObj<typeof TreeView>;
+
+export const Default: Story = {
+  args: {},
+  render: (args) => (
+    <TreeView {...args}>
       <TreeNode label="Folder 1">
         <TreeNode label="Object 1">
           <TreeNode label="Object 1.1" />
@@ -46,11 +46,4 @@ const meta: Meta<typeof TreeView> = {
       <TreeNode label="Folder 3" />
     </TreeView>
   ),
-};
-
-export default meta;
-type Story = StoryObj<typeof TreeView>;
-
-export const Default: Story = {
-
 };
