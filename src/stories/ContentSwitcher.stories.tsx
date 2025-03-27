@@ -2,6 +2,7 @@ import { StoryObj, Meta } from "@storybook/react";
 
 import { ContentSwitcher, ContentSwitcherItem } from "../components/ContentSwitcher";
 import { useContentSwitcher } from "../hooks/useContentSwitcher";
+import { Shell } from "../components/Shell";
 
 // Define a component with ContentSwitcher props and our additional storybook args
 type ContentSwitcherWithStoryProps = React.ComponentProps<typeof ContentSwitcher> & {
@@ -20,9 +21,11 @@ const meta: Meta<ContentSwitcherWithStoryProps> = {
   },
   decorators: [
     (Story) => (
-      <div className="tu:w-64 tu:md:w-full">
-        <Story />
-      </div>
+      <Shell className="tu:h-64">
+        <div className="tu:w-64 tu:md:w-full">
+          <Story />
+        </div>
+      </Shell>
     ),
   ],
   tags: ["autodocs"],

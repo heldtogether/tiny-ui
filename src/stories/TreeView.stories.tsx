@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 
 import { TreeNode, TreeView } from "../components/TreeView";
+import { Shell } from "../components/Shell";
 
 const meta: Meta<typeof TreeView> = {
   title: "Components/TreeView",
@@ -10,9 +11,11 @@ const meta: Meta<typeof TreeView> = {
   },
   decorators: [
     (Story) => (
-      <div className="tu:w-96 tu:h-96 tu:flex tu:border tu:border-rose-200">
-        <Story />
-      </div>
+      <Shell className="tu:h-64">
+        <div className="tu:w-96 tu:h-96 tu:flex tu:border tu:border-rose-200">
+          <Story />
+        </div>
+      </Shell>
     ),
   ],
   parameters: {

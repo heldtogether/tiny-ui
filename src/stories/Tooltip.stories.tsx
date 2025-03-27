@@ -9,6 +9,13 @@ const meta: Meta<typeof TooltipContent> = {
     layout: "centered",
     controls: { expanded: true },
   },
+  decorators: [
+    (Story) => (
+      <div className="tu:font-space">
+        <Story />
+      </div>
+    ),
+  ],
   tags: ["autodocs"],
   argTypes: {
     position: {

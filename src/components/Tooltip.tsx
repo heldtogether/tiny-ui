@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 export function Tooltip({ children }: { children: ReactNode }) {
-  return <div className="tu:relative tu:group">{children}</div>;
+  return <div className="tu:relative tu:group tu:flex-0 tu:grow-0 tu:shrink-0 tu:inline-block">{children}</div>;
 }
 
 type TooltipContentProps = { children: ReactNode, position: "top" | "bottom" | "left" | "right", isVisible?: boolean }

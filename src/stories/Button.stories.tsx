@@ -2,15 +2,18 @@ import { StoryObj, Meta } from "@storybook/react";
 
 import { Button } from "../components/Button";
 import { Add } from "@carbon/icons-react";
+import { Shell } from "../components/Shell";
 
 const meta: Meta<typeof Button> = {
   title: "Components/Button",
   component: Button,
   decorators: [
     (Story) => (
-      <div className="tu:flex tu:flex-row tu:gap-4">
-        <Story />
-      </div>
+      <Shell className="tu:h-64">
+        <div className="tu:flex tu:flex-row tu:gap-4">
+          <Story />
+        </div>
+      </Shell>
     ),
   ],
   parameters: {

@@ -1,4 +1,5 @@
 // Export all components
+export { Accordion } from './Accordion';
 export { Button } from './Button';
 export { Content } from './Content';
 export { ContentSwitcher } from './ContentSwitcher';

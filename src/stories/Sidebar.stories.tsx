@@ -10,15 +10,18 @@ import {
 } from "../components/Sidebar";
 import { TreeNode } from "../components/TreeView";
 import { TreeView } from "../components/TreeView";
+import { Shell } from "../components/Shell";
 
 const meta: Meta<typeof Sidebar> = {
   title: "Components/Sidebar",
   component: Sidebar,
   decorators: [
     (Story) => (
-      <div className="tu:w-full tu:h-96 tu:flex tu:border tu:border-rose-200">
-        <Story />
-      </div>
+      <Shell className="tu:h-64">
+        <div className="tu:w-full tu:h-96 tu:flex tu:border tu:border-rose-200">
+          <Story />
+        </div>
+      </Shell>
     ),
   ],
   parameters: {
