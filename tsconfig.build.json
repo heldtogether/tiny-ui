@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "allowSyntheticDefaultImports": true,
+    "outDir": "dist/types",
+    "composite": false,
+    "noEmit": false,
+    "moduleResolution": "node",
+    "module": "ESNext"
+  },
+  "include": ["src"],
+  "exclude": [
+    "**/*.stories.*",
+    "**/*.test.*",
+    "dist",
+    "node_modules",
+    ".storybook"
+  ]
+}
