@@ -11,7 +11,7 @@
       "require": "./dist/tiny-ui.cjs.js",
       "types": "./dist/index.d.ts"
     },
-    "./style.css": "./dist/style.css"
+    "./tiny-ui.css": "./dist/tiny-ui.css"
   },
   "types": "./dist/index.d.ts",
   "files": [
