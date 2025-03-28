@@ -15,6 +15,8 @@ export { Portal } from "./Portal";
 export { Shell } from "./Shell";
 export {
   Sidebar,
+  SidebarItems,
+  SidebarLinkItem,
   SidebarButtonItem,
   SidebarDivider,
   SidebarTextItem,
