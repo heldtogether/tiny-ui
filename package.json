@@ -8,7 +8,8 @@
   "exports": {
     ".": {
       "import": "./dist/tiny-ui.es.js",
-      "require": "./dist/tiny-ui.cjs.js"
+      "require": "./dist/tiny-ui.cjs.js",
+      "types": "./dist/index.d.ts"
     },
     "./style.css": "./dist/style.css"
   },
